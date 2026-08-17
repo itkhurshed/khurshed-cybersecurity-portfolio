@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MD Khurshed Alam | IT Support Engineer | System Administrator | Cybersecurity Specialist</title>
 <meta name="description" content="IT Support Engineer and Cybersecurity Specialist with experience in system administration, networking, Linux, Windows Server, and security operations.">
-<meta name="keywords" content="IT Support Engineer, System Administrator, Cybersecurity Specialist, SOC Analyst, CompTIA CySA+, Linux Administrator, Network Engineer, Azure Administrator, CCNP, CCNA, Wazuh, SIEM">
+<meta name="keywords" content="IT Support Engineer, System Administrator, Cybersecurity Specialist, SOC Analyst, CompTIA CySA+, Linux Administrator, Network Engineer, Azure Administrator, CCNP, CCNA, Wazuh, SIEM, Cybersecurity Analyst Kuwait, IT Infrastructure Engineer Kuwait, Microsoft 365 Administrator">
 <meta name="author" content="MD Khurshed Alam">
 <link rel="canonical" href="https://itkhurshed.github.io/khurshed-cybersecurity-portfolio/">
 <link rel="sitemap" type="application/xml" href="/khurshed-cybersecurity-portfolio/sitemap.xml">
@@ -37,7 +37,11 @@
   "jobTitle": "IT Support Engineer | System Administrator | Cybersecurity Specialist",
   "description": "IT Support Engineer and Cybersecurity Specialist with experience in system administration, networking, Linux, Windows Server, and security operations.",
   "knowsAbout": ["IT Support","System Administration","SIEM Monitoring","Incident Response","Threat Detection","Log Analysis","Windows Server","Linux","Active Directory","Networking","Wireshark","Nmap","Splunk","Wazuh","Kali Linux"],
-  "url": "https://itkhurshed.github.io/khurshed-cybersecurity-portfolio/"
+  "url": "https://itkhurshed.github.io/khurshed-cybersecurity-portfolio/",
+  "image": "https://itkhurshed.github.io/khurshed-cybersecurity-portfolio/assets/khurshed-photo.jpg",
+  "email": "mailto:itkhurshed@gmail.com",
+  "address": {"@type":"PostalAddress","addressLocality":"Kuwait City","addressCountry":"KW"},
+  "sameAs": ["https://www.linkedin.com/in/engineer-mohammad-khurshed-alam-b64501186/","https://github.com/itkhurshed"]
 }
 </script>
 
@@ -130,6 +134,9 @@ nav{
   background:linear-gradient(135deg,var(--cyan),var(--blue));
   display:flex; align-items:center; justify-content:center; font-weight:800; color:#031018; font-size:.9rem;
 }
+.logo-avatar{width:34px; height:34px; border-radius:9px; object-fit:cover; border:1px solid rgba(34,211,238,.4); flex-shrink:0;}
+.logo-text{display:flex; flex-direction:column; line-height:1.2;}
+.logo-tag{font-size:.6rem; font-weight:500; color:var(--cyan); letter-spacing:.4px; font-family:'JetBrains Mono',monospace; text-transform:uppercase;}
 .nav-links{display:flex; gap:26px; font-size:.9rem; color:var(--muted); flex-wrap:wrap;}
 .nav-links a{transition:color .2s ease; position:relative; white-space:nowrap;}
 .nav-links a:hover{color:var(--text);}
@@ -245,6 +252,7 @@ nav{
 .about-photo .br{bottom:14px; right:14px; border-left:none; border-top:none;}
 .about-photo-inner{color:var(--muted-2); text-align:center; font-family:'JetBrains Mono',monospace; font-size:.85rem; padding:20px; position:relative; z-index:2;}
 .about-photo-inner i{font-size:2.6rem; color:var(--cyan); margin-bottom:14px; display:block;}
+.about-photo-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
 .about-list{list-style:none; margin-top:26px; display:grid; gap:14px;}
 .about-list li{display:flex; gap:12px; align-items:flex-start; color:var(--muted); font-size:.96rem;}
 .about-list i{color:var(--green); margin-top:4px;}
@@ -501,9 +509,12 @@ nav{
 .connect-card.linkedin:hover{box-shadow:0 20px 50px rgba(10,102,194,.25);}
 .connect-card.facebook{background:linear-gradient(135deg, rgba(24,119,242,.22), rgba(168,85,247,.12)); border-color:rgba(24,119,242,.35);}
 .connect-card.facebook:hover{box-shadow:0 20px 50px rgba(24,119,242,.22);}
+.connect-card.github{background:linear-gradient(135deg, rgba(168,85,247,.2), rgba(34,211,238,.08)); border-color:rgba(168,85,247,.35);}
+.connect-card.github:hover{box-shadow:0 20px 50px rgba(168,85,247,.22);}
 .connect-icon{width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex-shrink:0; animation:floatY 3.2s ease-in-out infinite;}
 .connect-card.linkedin .connect-icon{background:rgba(10,102,194,.25); color:#4db8ff;}
 .connect-card.facebook .connect-icon{background:rgba(24,119,242,.25); color:#7ea9ff;}
+.connect-card.github .connect-icon{background:rgba(168,85,247,.25); color:#c9a3ff;}
 @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 .connect-body h4{font-size:1.08rem; font-weight:700; margin-bottom:4px;}
 .connect-body .sub{font-size:.85rem; color:var(--muted); margin-bottom:14px;}
@@ -531,6 +542,22 @@ nav{
 .contact-band h2{font-size:clamp(1.6rem,3vw,2.4rem); font-weight:800; margin-bottom:16px;}
 .contact-band p{color:var(--muted); max-width:520px; margin:0 auto 32px;}
 .contact-actions{display:flex; justify-content:center; gap:14px; flex-wrap:wrap;}
+.contact-grid{display:grid; grid-template-columns:1.4fr .8fr; gap:24px; text-align:left; max-width:900px; margin:40px auto 0;}
+.contact-form{border:1px solid var(--line); border-radius:var(--radius); padding:28px; background:rgba(5,11,22,.4); display:flex; flex-direction:column; gap:12px;}
+.contact-form h4{font-size:1rem; font-weight:700; margin-bottom:6px;}
+.contact-form input, .contact-form textarea{
+  width:100%; padding:12px 14px; border-radius:9px; border:1px solid var(--line); background:rgba(255,255,255,.04);
+  color:var(--text); font-family:'Inter',sans-serif; font-size:.9rem; resize:vertical;
+}
+.contact-form input:focus, .contact-form textarea:focus{outline:none; border-color:var(--cyan);}
+.contact-form .btn{align-self:flex-start;}
+.form-note{font-size:.76rem; color:var(--muted-2);}
+.qr-panel{
+  border:1px solid var(--line); border-radius:var(--radius); background:rgba(5,11,22,.4);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; padding:28px;
+}
+.qr-panel img{border-radius:10px; border:1px solid var(--line);}
+.qr-panel p{font-size:.8rem; color:var(--muted-2); text-align:center; font-family:'JetBrains Mono',monospace;}
 footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
 .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
 .footer-inner p{color:var(--muted-2); font-size:.85rem;}
@@ -564,6 +591,7 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
   .section{padding:80px 0;}
   .map-panel{padding:50px 18px;}
   .connect-card{flex-direction:column; text-align:center;}
+  .contact-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -576,7 +604,7 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
 
 <header id="site-header">
   <nav>
-    <a href="#top" class="logo"><span class="logo-mark">KA</span> MD Khurshed Alam</a>
+    <a href="#top" class="logo"><img src="assets/khurshed-photo.jpg" alt="MD Khurshed Alam" class="logo-avatar"><span class="logo-text">MD Khurshed Alam<span class="logo-tag">Cyber Defense Lab</span></span></a>
     <div class="nav-links" id="navLinks">
       <a href="#top">Home</a>
       <a href="#about">About</a>
@@ -589,7 +617,7 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-cta">
-      <a href="#" class="btn btn-outline" id="downloadCvBtn"><i class="fa-solid fa-download"></i> Download CV</a>
+      <a href="assets/MD-Khurshed-Alam-CV.pdf" download="MD-Khurshed-Alam-CV.pdf" class="btn btn-outline" id="downloadCvBtn"><i class="fa-solid fa-download"></i> Download CV</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </nav>
@@ -608,7 +636,7 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
       <p class="hero-tagline reveal in-view">I secure, troubleshoot, and manage modern IT infrastructure.</p>
       <p class="lead reveal in-view">Defending systems, investigating threats, and building resilient IT infrastructure — 15+ years of enterprise experience across financial, energy, and technology sectors. CompTIA CySA+, Azure Administrator, and CCNP certified.</p>
       <div class="hero-actions reveal in-view">
-        <a href="#" class="btn btn-primary" id="heroDownloadBtn"><i class="fa-solid fa-download"></i> Download CV</a>
+        <a href="assets/MD-Khurshed-Alam-CV.pdf" download="MD-Khurshed-Alam-CV.pdf" class="btn btn-primary" id="heroDownloadBtn"><i class="fa-solid fa-download"></i> Download CV</a>
         <a href="https://www.linkedin.com/in/engineer-mohammad-khurshed-alam-b64501186/" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
         <a href="#certifications" class="btn btn-outline"><i class="fa-solid fa-award"></i> View Certifications</a>
         <a href="#contact" class="btn btn-ghost"><i class="fa-solid fa-arrow-right"></i> Contact Me</a>
@@ -656,9 +684,9 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
       <div class="about-grid" style="margin-top:20px;">
         <div class="about-photo reveal">
           <div class="about-photo-frame">
+            <img src="assets/khurshed-photo.jpg" alt="MD Khurshed Alam — Senior IT Infrastructure &amp; Cybersecurity Engineer" class="about-photo-img">
             <div class="frame-corner tl"></div><div class="frame-corner br"></div>
             <div class="hologram-scan"></div>
-            <div class="about-photo-inner"><i class="fa-solid fa-user-shield"></i>Portrait placeholder<br>Drop in your professional headshot here<br><span style="font-size:.72rem; opacity:.7;">(business shirt, tech background, security lighting recommended)</span></div>
           </div>
           <div class="float-icon fi-1"><i class="fa-solid fa-shield-halved"></i></div>
           <div class="float-icon fi-2"><i class="fa-solid fa-lock"></i></div>
@@ -826,13 +854,13 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
             <span class="btn btn-primary" style="padding:9px 18px; font-size:.82rem;"><i class="fa-brands fa-linkedin"></i> Connect</span>
           </div>
         </a>
-        <a href="#" class="connect-card facebook reveal reveal-delay-1">
-          <div class="connect-icon"><i class="fa-brands fa-facebook-f"></i></div>
+        <a href="https://github.com/itkhurshed" target="_blank" rel="noopener" class="connect-card github reveal reveal-delay-1">
+          <div class="connect-icon"><i class="fa-brands fa-github"></i></div>
           <div class="connect-body">
-            <h4>Technology Updates</h4>
-            <p class="sub">IT tips &amp; cybersecurity content</p>
-            <div class="connect-tags"><span>IT Tips</span><span>Cybersecurity Content</span></div>
-            <span class="btn btn-outline" style="padding:9px 18px; font-size:.82rem;"><i class="fa-brands fa-facebook"></i> Follow</span>
+            <h4>GitHub</h4>
+            <p class="sub">Portfolio source, labs &amp; project write-ups</p>
+            <div class="connect-tags"><span>Projects</span><span>Home Lab Notes</span></div>
+            <span class="btn btn-outline" style="padding:9px 18px; font-size:.82rem;"><i class="fa-brands fa-github"></i> Follow</span>
           </div>
         </a>
       </div>
@@ -857,8 +885,23 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
         <p>Open to SOC Analyst, Cybersecurity Specialist, and IT/System Administrator roles — onsite in Kuwait, remote, or relocating internationally.</p>
         <div class="contact-actions">
           <a href="mailto:itkhurshed@gmail.com" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Hire Me</a>
-          <a href="#" class="btn btn-outline"><i class="fa-solid fa-file-arrow-down"></i> View My CV</a>
+          <a href="assets/MD-Khurshed-Alam-CV.pdf" download="MD-Khurshed-Alam-CV.pdf" class="btn btn-outline"><i class="fa-solid fa-file-arrow-down"></i> View My CV</a>
           <a href="https://www.linkedin.com/in/engineer-mohammad-khurshed-alam-b64501186/" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> Connect on LinkedIn</a>
+          <a href="https://github.com/itkhurshed" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+        <div class="contact-grid reveal reveal-delay-1">
+          <form class="contact-form" id="quickContactForm">
+            <h4><i class="fa-solid fa-envelope-open-text"></i> Send a quick message</h4>
+            <input type="text" id="cfName" placeholder="Your name" required>
+            <input type="email" id="cfEmail" placeholder="Your email" required>
+            <textarea id="cfMessage" rows="4" placeholder="What are you reaching out about?" required></textarea>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send via Email</button>
+            <p class="form-note">Opens your email client with this message pre-filled to itkhurshed@gmail.com — no data is stored or sent anywhere else.</p>
+          </form>
+          <div class="qr-panel">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=8&data=https%3A%2F%2Fitkhurshed.github.io%2Fkhurshed-cybersecurity-portfolio%2F" alt="QR code linking to this portfolio" width="180" height="180" loading="lazy">
+            <p>Scan to share this portfolio</p>
+          </div>
         </div>
       </div>
     </div>
@@ -871,8 +914,7 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
     <p>&copy; 2026 MD Khurshed Alam. Design concept prototype — Cybersecurity Specialist | SOC-Focused IT Engineer | System Administrator.</p>
     <div class="social-row">
       <a href="https://www.linkedin.com/in/engineer-mohammad-khurshed-alam-b64501186/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://github.com/itkhurshed" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="mailto:itkhurshed@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       <a href="https://wa.me/96566648706" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
@@ -1153,10 +1195,19 @@ window.addEventListener('scroll', ()=>{
   lastY = window.scrollY;
 });
 
-/* ---------- CV DOWNLOAD PLACEHOLDER ---------- */
-[document.getElementById('downloadCvBtn'), document.getElementById('heroDownloadBtn')].forEach(btn=>{
-  btn.addEventListener('click', (e)=>{ e.preventDefault(); alert('Link this button to your hosted CV PDF (e.g. /assets/MD-Khurshed-Alam-CV.pdf).'); });
-});
+/* ---------- QUICK CONTACT FORM (mailto, no backend) ---------- */
+const quickContactForm = document.getElementById('quickContactForm');
+if(quickContactForm){
+  quickContactForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const name = document.getElementById('cfName').value.trim();
+    const email = document.getElementById('cfEmail').value.trim();
+    const message = document.getElementById('cfMessage').value.trim();
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    window.location.href = `mailto:itkhurshed@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
 
 /* ---------- LOADER ---------- */
 window.addEventListener('load', ()=>{
