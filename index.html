@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MD Khurshed Alam | IT Support Engineer | System Administrator | Cybersecurity Specialist</title>
 <meta name="description" content="IT Support Engineer and Cybersecurity Specialist with experience in system administration, networking, Linux, Windows Server, and security operations.">
-<meta name="keywords" content="IT Support Engineer, System Administrator, Cybersecurity Specialist, SOC Analyst, CompTIA CySA+, Linux Administrator, Network Engineer, Azure Administrator, CCNP, CCNA, Wazuh, SIEM, Cybersecurity Analyst Kuwait, IT Infrastructure Engineer Kuwait, Microsoft 365 Administrator">
+<meta name="keywords" content="IT Support Engineer, System Administrator, Cybersecurity Specialist, SOC Analyst, CompTIA CySA+, Linux Administrator, Network Engineer, Azure Administrator, CCNP, CCNA, Wazuh, SIEM, Cybersecurity Analyst Kuwait, IT Infrastructure Engineer Kuwait, Microsoft 365 Administrator, Microsoft 365 Security, Azure AD Hardening, Zero Trust Security, Network Segmentation, Incident Response, Active Directory Hardening, Security Research Blog, Cloud Security Engineer, EU Blue Card IT Engineer">
 <meta name="author" content="MD Khurshed Alam">
+<meta name="geo.placename" content="Kuwait City, Kuwait">
+<meta name="geo.region" content="KW">
+<meta name="ICBM" content="29.3759, 47.9774">
 <link rel="canonical" href="https://itkhurshed.github.io/khurshed-cybersecurity-portfolio/">
 <link rel="sitemap" type="application/xml" href="/khurshed-cybersecurity-portfolio/sitemap.xml">
 
@@ -40,6 +43,7 @@
   "url": "https://itkhurshed.github.io/khurshed-cybersecurity-portfolio/",
   "image": "https://itkhurshed.github.io/khurshed-cybersecurity-portfolio/assets/khurshed-photo.jpg",
   "email": "mailto:itkhurshed@gmail.com",
+  "telephone": "+965-6664-8706",
   "address": {"@type":"PostalAddress","addressLocality":"Kuwait City","addressCountry":"KW"},
   "sameAs": ["https://www.linkedin.com/in/engineer-mohammad-khurshed-alam-b64501186/","https://github.com/itkhurshed"]
 }
@@ -551,18 +555,64 @@ nav{
 .connect-tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;}
 .connect-tags span{font-size:.68rem; padding:4px 9px; border-radius:999px; background:rgba(255,255,255,.06); color:var(--muted-2); font-family:'JetBrains Mono',monospace;}
 
-/* ===== BLOG ===== */
-.blog-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
-.blog-card{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:rgba(255,255,255,.02); transition:transform .35s ease, border-color .35s ease;}
+/* ===== BLOG / SECURITY RESEARCH ===== */
+.blog-author-card{
+  display:flex; align-items:center; gap:18px; background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px 26px; margin-bottom:28px;
+}
+.blog-author-card img{width:64px; height:64px; border-radius:50%; object-fit:cover; border:1px solid rgba(34,211,238,.4); flex-shrink:0;}
+.blog-author-card h4{font-size:1.02rem; font-weight:800;}
+.blog-author-card .role{font-size:.82rem; color:var(--cyan); margin-top:2px; font-weight:600;}
+.blog-author-card p{font-size:.84rem; color:var(--muted); margin-top:6px; max-width:640px;}
+
+.blog-metrics{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:22px 0; margin-bottom:32px;}
+.blog-metrics div{text-align:center; border-right:1px solid var(--line);}
+.blog-metrics div:last-child{border-right:none;}
+.blog-metrics .num{font-size:1.5rem; font-weight:800; font-family:'JetBrains Mono',monospace; color:var(--cyan);}
+.blog-metrics .lbl{font-size:.72rem; color:var(--muted-2); margin-top:4px;}
+
+.blog-filter-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;}
+.blog-filter-pill{
+  font-size:.78rem; font-weight:600; padding:8px 16px; border-radius:999px; border:1px solid var(--line); color:var(--muted);
+  background:rgba(255,255,255,.02); cursor:pointer; transition:all .2s ease; font-family:'JetBrains Mono',monospace;
+}
+.blog-filter-pill:hover{border-color:rgba(34,211,238,.4); color:var(--cyan);}
+.blog-filter-pill.active{background:var(--cyan); color:#03101c; border-color:var(--cyan);}
+
+.blog-featured{
+  display:grid; grid-template-columns:.9fr 1.1fr; gap:0; border:1px solid rgba(34,211,238,.3); border-radius:var(--radius);
+  overflow:hidden; margin-bottom:36px; background:linear-gradient(135deg, rgba(34,211,238,.06), rgba(168,85,247,.05));
+}
+.blog-featured-visual{
+  background:linear-gradient(160deg,#0e2a44,#122349); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:36px 24px; position:relative;
+}
+.blog-featured-visual i{font-size:2.6rem; color:var(--cyan);}
+.blog-featured-badge{position:absolute; top:16px; left:16px; font-size:.68rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; background:var(--cyan); color:#03101c; padding:5px 12px; border-radius:999px;}
+.blog-featured-body{padding:32px 34px;}
+.blog-featured-body .blog-tag{margin-bottom:10px; display:inline-block;}
+.blog-featured-body h3{font-size:1.35rem; font-weight:800; line-height:1.3; margin-bottom:12px;}
+.blog-featured-body p{font-size:.9rem; color:var(--muted); margin-bottom:16px;}
+.blog-featured-meta{display:flex; flex-wrap:wrap; gap:14px; font-size:.76rem; color:var(--muted-2); margin-bottom:18px;}
+.blog-featured-meta span{display:inline-flex; align-items:center; gap:5px;}
+
+.blog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+.blog-card{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:rgba(255,255,255,.02); transition:transform .35s ease, border-color .35s ease; display:flex; flex-direction:column;}
 .blog-card:hover{transform:translateY(-6px); border-color:rgba(34,211,238,.3);}
-.blog-thumb{height:110px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0e2a44,#122349); position:relative;}
-.blog-thumb i{font-size:1.7rem; color:rgba(255,255,255,.8);}
-.blog-body{padding:20px;}
-.blog-tag{font-size:.68rem; font-family:'JetBrains Mono',monospace; color:var(--cyan); text-transform:uppercase; letter-spacing:.06em;}
-.blog-body h4{font-size:.95rem; font-weight:700; margin:8px 0 8px; line-height:1.35;}
-.blog-body p{font-size:.8rem; color:var(--muted-2); margin-bottom:14px;}
-.blog-read{font-size:.78rem; color:var(--muted); display:inline-flex; align-items:center; gap:6px;}
+.blog-thumb{height:90px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0e2a44,#122349); position:relative;}
+.blog-thumb i{font-size:1.5rem; color:rgba(255,255,255,.8);}
+.blog-level{position:absolute; top:10px; right:10px; font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; background:rgba(5,11,22,.7); border:1px solid rgba(255,255,255,.2); color:#e7edf7; padding:3px 8px; border-radius:999px;}
+.blog-body{padding:18px; display:flex; flex-direction:column; flex:1;}
+.blog-tag{font-size:.66rem; font-family:'JetBrains Mono',monospace; color:var(--cyan); text-transform:uppercase; letter-spacing:.06em;}
+.blog-body h4{font-size:.92rem; font-weight:700; margin:8px 0 8px; line-height:1.35;}
+.blog-body p{font-size:.78rem; color:var(--muted-2); margin-bottom:12px; flex:1;}
+.blog-tech-row{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+.blog-tech-row span{font-size:.64rem; color:var(--muted); background:rgba(255,255,255,.05); border:1px solid var(--line); padding:2.5px 8px; border-radius:5px;}
+.blog-card-foot{display:flex; align-items:center; justify-content:space-between; margin-top:auto;}
+.blog-readtime{font-size:.68rem; color:var(--muted-2);}
+.blog-read{font-size:.78rem; color:var(--muted); display:inline-flex; align-items:center; gap:6px; text-decoration:none;}
 .blog-read:hover{color:var(--cyan);}
+@media(max-width:900px){ .blog-featured{grid-template-columns:1fr;} .blog-grid{grid-template-columns:repeat(2,1fr);} .blog-metrics{grid-template-columns:repeat(3,1fr); row-gap:16px;} .blog-metrics div:nth-child(3){border-right:none;} }
+@media(max-width:600px){ .blog-grid{grid-template-columns:1fr;} .blog-metrics{grid-template-columns:repeat(2,1fr);} .blog-author-card{flex-direction:column; text-align:center;} }
 
 /* contact / footer */
 .contact-band{
@@ -588,6 +638,19 @@ nav{
 }
 .qr-panel img{border-radius:10px; border:1px solid var(--line);}
 .qr-panel p{font-size:.8rem; color:var(--muted-2); text-align:center; font-family:'JetBrains Mono',monospace;}
+
+.contact-info-row{display:grid; grid-template-columns:.85fr 1.15fr; gap:24px; max-width:900px; margin:22px auto 0; text-align:left;}
+.contact-info-card{border:1px solid var(--line); border-radius:var(--radius); background:rgba(5,11,22,.4); padding:26px;}
+.contact-info-card h4{font-size:.92rem; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:8px;}
+.contact-detail-item{display:flex; align-items:center; gap:12px; margin-bottom:14px;}
+.contact-detail-item:last-child{margin-bottom:0;}
+.contact-detail-icon{width:36px; height:36px; border-radius:9px; background:rgba(34,211,238,.1); border:1px solid rgba(34,211,238,.3); display:flex; align-items:center; justify-content:center; color:var(--cyan); flex-shrink:0; font-size:.9rem;}
+.contact-detail-item a, .contact-detail-item span.val{font-size:.86rem; color:var(--text); text-decoration:none; font-weight:600;}
+.contact-detail-item a:hover{color:var(--cyan);}
+.contact-detail-item .lbl{display:block; font-size:.7rem; color:var(--muted-2); margin-bottom:2px; font-weight:400;}
+.map-embed-card{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:rgba(5,11,22,.4);}
+.map-embed-card iframe{width:100%; height:100%; min-height:220px; border:0; display:block; filter:grayscale(.3) invert(.92) contrast(.9);}
+@media(max-width:900px){ .contact-info-row{grid-template-columns:1fr;} }
 footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
 .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
 .footer-inner p{color:var(--muted-2); font-size:.85rem;}
@@ -622,7 +685,63 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
   .map-panel{padding:50px 18px;}
   .connect-card{flex-direction:column; text-align:center;}
   .contact-grid{grid-template-columns:1fr;}
+  .chat-panel{width:calc(100vw - 32px); right:16px; bottom:92px; height:70vh; max-height:520px;}
 }
+
+/* ===== LIVE CHAT WIDGET ===== */
+.chat-fab{
+  position:fixed; right:24px; bottom:24px; z-index:60; width:60px; height:60px; border-radius:50%;
+  background:linear-gradient(135deg,var(--cyan),var(--blue)); border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(34,211,238,.35);
+  color:#03101c; font-size:1.4rem; transition:transform .25s ease;
+}
+.chat-fab:hover{transform:scale(1.07);}
+.chat-fab .fa-xmark{display:none;}
+.chat-fab.open .fa-comment-dots{display:none;}
+.chat-fab.open .fa-xmark{display:block;}
+.chat-fab-dot{position:absolute; top:4px; right:4px; width:12px; height:12px; border-radius:50%; background:var(--green); border:2px solid var(--bg); animation:chatPulse 2s ease-in-out infinite;}
+@keyframes chatPulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.55);}50%{box-shadow:0 0 0 6px rgba(52,211,153,0);}}
+
+.chat-panel{
+  position:fixed; right:24px; bottom:96px; z-index:60; width:340px; height:460px; max-height:70vh;
+  background:var(--panel); border:1px solid var(--line); border-radius:18px; overflow:hidden;
+  display:flex; flex-direction:column; box-shadow:0 24px 60px rgba(0,0,0,.5);
+  opacity:0; transform:translateY(16px) scale(.97); pointer-events:none; transition:all .25s cubic-bezier(.2,.8,.2,1);
+}
+.chat-panel.open{opacity:1; transform:translateY(0) scale(1); pointer-events:auto;}
+.chat-head{
+  background:linear-gradient(120deg,#0e2a44,#122349); padding:16px 18px; display:flex; align-items:center; gap:12px; border-bottom:1px solid var(--line);
+}
+.chat-head-avatar{width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,var(--cyan),var(--purple)); display:flex; align-items:center; justify-content:center; font-size:1.05rem; color:#03101c; flex-shrink:0;}
+.chat-head h5{font-size:.88rem; font-weight:700;}
+.chat-head .status{font-size:.72rem; color:var(--green); display:flex; align-items:center; gap:5px;}
+.chat-head .status .d{width:6px; height:6px; border-radius:50%; background:var(--green);}
+.chat-body{flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px;}
+.chat-msg{max-width:82%; padding:9px 13px; border-radius:12px; font-size:.82rem; line-height:1.45;}
+.chat-msg.bot{align-self:flex-start; background:rgba(255,255,255,.06); border:1px solid var(--line); border-bottom-left-radius:3px;}
+.chat-msg.user{align-self:flex-end; background:linear-gradient(135deg,var(--cyan),var(--blue)); color:#03101c; font-weight:600; border-bottom-right-radius:3px;}
+.chat-quick{display:flex; flex-wrap:wrap; gap:6px; margin-top:2px;}
+.chat-quick button{
+  font-size:.72rem; font-weight:600; padding:6px 11px; border-radius:999px; border:1px solid rgba(34,211,238,.35);
+  background:rgba(34,211,238,.08); color:var(--cyan); cursor:pointer; transition:all .2s ease;
+}
+.chat-quick button:hover{background:var(--cyan); color:#03101c;}
+.chat-foot{border-top:1px solid var(--line); padding:10px 12px; display:flex; gap:8px; flex-direction:column;}
+.chat-input-row{display:flex; gap:8px;}
+.chat-input-row input{
+  flex:1; padding:9px 12px; border-radius:9px; border:1px solid var(--line); background:rgba(255,255,255,.04);
+  color:var(--text); font-size:.82rem; font-family:'Inter',sans-serif;
+}
+.chat-input-row input:focus{outline:none; border-color:var(--cyan);}
+.chat-input-row button{
+  width:36px; height:36px; border-radius:9px; border:none; background:linear-gradient(135deg,var(--cyan),var(--blue));
+  color:#03101c; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.chat-wa-btn{
+  display:flex; align-items:center; justify-content:center; gap:7px; font-size:.76rem; font-weight:700; color:#25D366;
+  border:1px solid rgba(37,211,102,.35); background:rgba(37,211,102,.08); padding:8px; border-radius:9px; text-decoration:none;
+}
+.chat-wa-btn:hover{background:rgba(37,211,102,.18);}
 </style>
 </head>
 <body>
@@ -643,7 +762,7 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
       <a href="#certifications">Certifications</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
-      <a href="#blog">Blog</a>
+      <a href="#blog">Research</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-cta">
@@ -907,12 +1026,33 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
     </div>
   </section>
 
-  <!-- BLOG -->
+  <!-- BLOG / SECURITY RESEARCH -->
   <section class="section" id="blog">
     <div class="container">
-      <span class="section-tag reveal"><i class="fa-solid fa-pen-nib"></i> Blog</span>
-      <h2 class="section-title reveal">Latest writing</h2>
-      <p class="section-sub reveal">Notes from the home lab and the certification path — real write-ups coming soon.</p>
+      <span class="section-tag reveal"><i class="fa-solid fa-pen-nib"></i> Security Research</span>
+      <h2 class="section-title reveal">Security Research &amp; Technical Insights</h2>
+      <p class="section-sub reveal">Practical write-ups on cloud security, network defense, and SOC operations — grounded in real enterprise experience, not theory.</p>
+
+      <div class="blog-author-card reveal">
+        <img src="assets/khurshed-photo.jpg" alt="Mohammad Khurshed Alam">
+        <div>
+          <h4>Mohammad Khurshed Alam</h4>
+          <div class="role">Senior IT Infrastructure Engineer · Cloud &amp; Cybersecurity · Enterprise Security</div>
+          <p>Sharing practical knowledge from 15+ years of enterprise IT and security operations experience.</p>
+        </div>
+      </div>
+
+      <div class="blog-metrics reveal">
+        <div><div class="num">15+</div><div class="lbl">Years IT Experience</div></div>
+        <div><div class="num">6+</div><div class="lbl">Professional Certifications</div></div>
+        <div><div class="num">50+</div><div class="lbl">Enterprise Systems Supported</div></div>
+        <div><div class="num">100+</div><div class="lbl">Security Concepts Researched</div></div>
+        <div><div class="num">24/7</div><div class="lbl">Infrastructure Ops Experience</div></div>
+      </div>
+
+      <div class="blog-filter-row reveal" id="blogFilterRow"></div>
+
+      <div id="blogFeatured"></div>
       <div class="blog-grid" id="blogGrid"></div>
     </div>
   </section>
@@ -941,6 +1081,27 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
           <div class="qr-panel">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=8&data=https%3A%2F%2Fitkhurshed.github.io%2Fkhurshed-cybersecurity-portfolio%2F" alt="QR code linking to this portfolio" width="180" height="180" loading="lazy">
             <p>Scan to share this portfolio</p>
+          </div>
+        </div>
+
+        <div class="contact-info-row reveal reveal-delay-2">
+          <div class="contact-info-card">
+            <h4><i class="fa-solid fa-address-card"></i> Direct Contact</h4>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <a href="https://wa.me/96566648706?text=Hi%20Khurshed%2C%20I%20found%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" rel="noopener"><span class="lbl">WhatsApp</span>+965 6664 8706</a>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+              <a href="mailto:itkhurshed@gmail.com"><span class="lbl">Email</span>itkhurshed@gmail.com</a>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <span class="val"><span class="lbl">Location</span>Kuwait City, Kuwait</span>
+            </div>
+          </div>
+          <div class="map-embed-card">
+            <iframe src="https://www.google.com/maps?q=Kuwait+City,Kuwait&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing Kuwait City, Kuwait"></iframe>
           </div>
         </div>
       </div>
@@ -1016,11 +1177,13 @@ const RECRUIT = [
 ];
 
 const BLOG = [
-  {tag:"Home Lab", title:"How I Built My Cybersecurity Home Lab", excerpt:"A walkthrough of the SIEM, log sources, and detection rules behind my SOC home lab.", icon:"fa-solid fa-server"},
-  {tag:"Certification", title:"CompTIA CySA+ Preparation Journey", excerpt:"Study plan, resources, and lessons learned preparing for the CySA+ exam.", icon:"fa-solid fa-shield-halved"},
-  {tag:"Linux", title:"Linux Security Basics", excerpt:"SSH hardening, firewall rules, and the first things I lock down on any new box.", icon:"fa-brands fa-linux"},
-  {tag:"Career", title:"SOC Analyst Learning Roadmap", excerpt:"A practical roadmap for moving from IT support into SOC analyst roles.", icon:"fa-solid fa-route"},
+  {category:"Cyber Defense", featured:true, title:"Securing Microsoft 365 Enterprise Environment", excerpt:"Conditional Access, MFA, Defender for Office 365, and Zero Trust identity controls — the layered defense I roll out on every tenant.", icon:"fa-solid fa-cloud-bolt", level:"Advanced", tech:["Azure AD","Intune","Defender"], readTime:"8 min read", date:"Aug 2026", url:"blog/securing-microsoft-365-against-modern-threats.html"},
+  {category:"Cloud Security", title:"Azure Active Directory Security Hardening Guide", excerpt:"A practical Entra ID hardening checklist — Conditional Access, PIM, Identity Protection, and killing legacy auth.", icon:"fa-brands fa-microsoft", level:"Intermediate", tech:["Azure AD","Entra ID","PIM"], readTime:"7 min read", date:"Aug 2026", url:"blog/azure-ad-security-hardening-guide.html"},
+  {category:"Network Security", title:"Enterprise Network Security: Firewalls, VPNs & Segmentation", excerpt:"VLAN-based segmentation, least-privilege firewall policy, and hardened remote access — the CCNP-level fundamentals.", icon:"fa-solid fa-network-wired", level:"Intermediate", tech:["Firewall","VPN","VLAN"], readTime:"7 min read", date:"Jul 2026", url:"blog/enterprise-network-security-firewall-vpn-segmentation.html"},
+  {category:"Security Operations", title:"SOC Analyst Workflow & Incident Response Lifecycle", excerpt:"How I triage SIEM alerts and work the NIST-aligned IR lifecycle — from detection through lessons learned.", icon:"fa-solid fa-satellite-dish", level:"Intermediate", tech:["SIEM","Wazuh","IR"], readTime:"6 min read", date:"Jun 2026", url:"blog/soc-analyst-workflow-incident-response-lifecycle.html"},
+  {category:"Infrastructure", title:"Active Directory Hardening & Windows Server Checklist", excerpt:"Tiered admin model, GPO baselines, and patch management strategy — the AD hardening pass every environment needs.", icon:"fa-solid fa-server", level:"Intermediate", tech:["Active Directory","GPO","Patching"], readTime:"7 min read", date:"May 2026", url:"blog/active-directory-hardening-windows-server-checklist.html"},
 ];
+const BLOG_CATEGORIES = ["All","Cyber Defense","Cloud Security","Network Security","Security Operations","Infrastructure"];
 
 /* ---------- RENDER MATRIX ---------- */
 const matrixGrid = document.getElementById('matrixGrid');
@@ -1130,21 +1293,73 @@ RECRUIT.forEach((r,i)=>{
   recruitGrid.appendChild(el);
 });
 
-/* ---------- RENDER BLOG ---------- */
+/* ---------- RENDER BLOG (featured + filter + grid) ---------- */
 const blogGrid = document.getElementById('blogGrid');
-BLOG.forEach((b,i)=>{
-  const el = document.createElement('div');
-  el.className = 'blog-card reveal' + (i%2===1?' reveal-delay-1':'');
-  el.innerHTML = `
-    <div class="blog-thumb"><i class="${b.icon}"></i></div>
-    <div class="blog-body">
-      <span class="blog-tag">${b.tag}</span>
-      <h4>${b.title}</h4>
-      <p>${b.excerpt}</p>
-      <a href="#" class="blog-read">Read more <i class="fa-solid fa-arrow-right"></i></a>
-    </div>`;
-  blogGrid.appendChild(el);
+const blogFeatured = document.getElementById('blogFeatured');
+const blogFilterRow = document.getElementById('blogFilterRow');
+
+const featuredPost = BLOG.find(b=>b.featured);
+if(featuredPost){
+  blogFeatured.innerHTML = `
+    <a href="${featuredPost.url}" class="blog-featured reveal" style="text-decoration:none; color:inherit;">
+      <div class="blog-featured-visual">
+        <span class="blog-featured-badge">Featured Research</span>
+        <i class="${featuredPost.icon}"></i>
+      </div>
+      <div class="blog-featured-body">
+        <span class="blog-tag">${featuredPost.category}</span>
+        <h3>${featuredPost.title}</h3>
+        <p>${featuredPost.excerpt}</p>
+        <div class="blog-featured-meta">
+          <span><i class="fa-solid fa-signal"></i> ${featuredPost.level}</span>
+          <span><i class="fa-solid fa-clock"></i> ${featuredPost.readTime}</span>
+          <span><i class="fa-solid fa-microchip"></i> ${featuredPost.tech.join(' | ')}</span>
+        </div>
+        <span class="btn btn-primary" style="padding:10px 20px; font-size:.82rem;">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </a>`;
+}
+
+function renderBlogGrid(filter){
+  blogGrid.innerHTML = '';
+  const list = BLOG.filter(b=>!b.featured && (filter==='All' || b.category===filter));
+  list.forEach((b,i)=>{
+    const el = document.createElement('div');
+    el.className = 'blog-card reveal' + (i%3===1?' reveal-delay-1':i%3===2?' reveal-delay-2':'');
+    el.innerHTML = `
+      <div class="blog-thumb"><i class="${b.icon}"></i><span class="blog-level">${b.level}</span></div>
+      <div class="blog-body">
+        <span class="blog-tag">${b.category}</span>
+        <h4>${b.title}</h4>
+        <p>${b.excerpt}</p>
+        <div class="blog-tech-row">${b.tech.map(t=>`<span>${t}</span>`).join('')}</div>
+        <div class="blog-card-foot">
+          <span class="blog-readtime">${b.readTime}</span>
+          <a href="${b.url}" class="blog-read">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>`;
+    blogGrid.appendChild(el);
+  });
+  document.querySelectorAll('.reveal').forEach(el=>{
+    const r = el.getBoundingClientRect();
+    if(r.top < window.innerHeight * 0.9) el.classList.add('in-view');
+  });
+}
+
+BLOG_CATEGORIES.forEach(cat=>{
+  const pill = document.createElement('button');
+  pill.type = 'button';
+  pill.className = 'blog-filter-pill' + (cat==='All' ? ' active' : '');
+  pill.textContent = cat;
+  pill.addEventListener('click', ()=>{
+    blogFilterRow.querySelectorAll('.blog-filter-pill').forEach(p=>p.classList.remove('active'));
+    pill.classList.add('active');
+    renderBlogGrid(cat);
+  });
+  blogFilterRow.appendChild(pill);
 });
+
+renderBlogGrid('All');
 
 /* ---------- SOC DASHBOARD ---------- */
 (function(){
@@ -1333,6 +1548,144 @@ window.addEventListener('load', ()=>{
   }
   resize();
   step();
+})();
+</script>
+
+<!-- ===== LIVE CHAT WIDGET ===== -->
+<button class="chat-fab" id="chatFab" aria-label="Open chat">
+  <i class="fa-solid fa-comment-dots"></i><i class="fa-solid fa-xmark"></i>
+  <span class="chat-fab-dot"></span>
+</button>
+
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="chat-head-avatar"><i class="fa-solid fa-shield-halved"></i></div>
+    <div>
+      <h5>Khurshed's Assistant</h5>
+      <div class="status"><span class="d"></span> Auto-reply bot · Online</div>
+    </div>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-foot">
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Ask about CV, certs, contact...">
+      <button id="chatSend" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+    <a href="https://wa.me/96566648706?text=Hi%20Khurshed%2C%20I%20found%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" rel="noopener" class="chat-wa-btn"><i class="fa-brands fa-whatsapp"></i> Continue on WhatsApp</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  const fab = document.getElementById('chatFab');
+  const panel = document.getElementById('chatPanel');
+  const body = document.getElementById('chatBody');
+  const input = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('chatSend');
+  let opened = false;
+
+  const QUICK_REPLIES = [
+    {label:"📄 View CV", key:"cv"},
+    {label:"🎓 Certifications", key:"certs"},
+    {label:"💼 Experience", key:"experience"},
+    {label:"🔒 Security Projects", key:"projects"},
+    {label:"📱 WhatsApp Me", key:"whatsapp"},
+    {label:"✉️ Email Me", key:"email"},
+  ];
+
+  function addMsg(text, who){
+    const el = document.createElement('div');
+    el.className = 'chat-msg ' + who;
+    el.innerHTML = text;
+    body.appendChild(el);
+    body.scrollTop = body.scrollHeight;
+    return el;
+  }
+
+  function addQuickReplies(){
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-quick';
+    QUICK_REPLIES.forEach(q=>{
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = q.label;
+      b.addEventListener('click', ()=>handleIntent(q.key, q.label));
+      wrap.appendChild(b);
+    });
+    body.appendChild(wrap);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function botReply(html, delay){
+    setTimeout(()=>addMsg(html, 'bot'), delay || 450);
+  }
+
+  function handleIntent(key, userLabel){
+    if(userLabel) addMsg(userLabel, 'user');
+    switch(key){
+      case 'cv':
+        botReply('Here\'s my latest CV: <a href="assets/MD-Khurshed-Alam-CV.pdf" download target="_blank" style="color:var(--cyan);">Download CV (PDF) <i class="fa-solid fa-file-arrow-down"></i></a>');
+        break;
+      case 'certs':
+        botReply('I hold CompTIA CySA+ (ce), Microsoft Azure Administrator (AZ-104), Cisco CCNP Enterprise, Cisco Certified Specialist — Enterprise Core, and Cisco CCNA. <a href="#certifications" onclick="document.getElementById(\'chatPanel\').classList.remove(\'open\');document.getElementById(\'chatFab\').classList.remove(\'open\');" style="color:var(--cyan);">Jump to Certifications ↓</a>');
+        break;
+      case 'experience':
+        botReply('15+ years across IT support, system administration, and cybersecurity — currently IT Helpdesk Manager at KMEFIC. <a href="#experience" onclick="document.getElementById(\'chatPanel\').classList.remove(\'open\');document.getElementById(\'chatFab\').classList.remove(\'open\');" style="color:var(--cyan);">View full timeline ↓</a>');
+        break;
+      case 'projects':
+        botReply('Check out the hands-on labs — SIEM monitoring, AD hardening, vulnerability assessments, and more. <a href="#projects" onclick="document.getElementById(\'chatPanel\').classList.remove(\'open\');document.getElementById(\'chatFab\').classList.remove(\'open\');" style="color:var(--cyan);">View Labs &amp; Projects ↓</a>');
+        break;
+      case 'whatsapp':
+        botReply('You can reach me directly on WhatsApp: <a href="https://wa.me/96566648706" target="_blank" rel="noopener" style="color:#25D366;">+965 6664 8706 <i class="fa-brands fa-whatsapp"></i></a>');
+        break;
+      case 'email':
+        botReply('Email works too: <a href="mailto:itkhurshed@gmail.com" style="color:var(--cyan);">itkhurshed@gmail.com</a>');
+        break;
+      default:
+        botReply('Thanks for reaching out — for anything specific, the fastest way to reach me is WhatsApp (+965 6664 8706) or email (itkhurshed@gmail.com). I usually reply within a day.');
+    }
+  }
+
+  function handleFreeText(text){
+    addMsg(text.replace(/</g,'&lt;'), 'user');
+    const t = text.toLowerCase();
+    let key = null;
+    if(/cv|resume/.test(t)) key = 'cv';
+    else if(/certif|cysa|azure|ccnp|ccna/.test(t)) key = 'certs';
+    else if(/experience|job|work|career/.test(t)) key = 'experience';
+    else if(/project|lab|soc|siem/.test(t)) key = 'projects';
+    else if(/whatsapp|phone|call|number/.test(t)) key = 'whatsapp';
+    else if(/email|mail/.test(t)) key = 'email';
+    setTimeout(()=>handleIntent(key), 450);
+  }
+
+  fab.addEventListener('click', ()=>{
+    opened = !opened;
+    fab.classList.toggle('open', opened);
+    panel.classList.toggle('open', opened);
+    if(opened && !body.dataset.greeted){
+      body.dataset.greeted = '1';
+      setTimeout(()=>{
+        addMsg('👋 Hi! I\'m Khurshed\'s virtual assistant. I can answer quick questions about his CV, certifications, or experience — or connect you directly on WhatsApp/email. How can I help?', 'bot');
+        addQuickReplies();
+      }, 300);
+    }
+  });
+
+  sendBtn.addEventListener('click', ()=>{
+    const v = input.value.trim();
+    if(!v) return;
+    handleFreeText(v);
+    input.value = '';
+  });
+  input.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const v = input.value.trim();
+      if(!v) return;
+      handleFreeText(v);
+      input.value = '';
+    }
+  });
 })();
 </script>
 </body>
