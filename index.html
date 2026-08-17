@@ -413,6 +413,32 @@ nav{
 .cert-skill-list li{font-size:.85rem; color:var(--muted); display:flex; gap:8px; align-items:flex-start;}
 .cert-skill-list i{color:var(--green); margin-top:3px; font-size:.75rem;}
 .cert-meta-row{font-size:.72rem; color:var(--muted-2); font-family:'JetBrains Mono',monospace; margin-bottom:14px;}
+.cert-id-row{display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:.72rem; color:var(--muted-2); font-family:'JetBrains Mono',monospace; padding:6px 0; border-bottom:1px dashed var(--line);}
+.cert-id-row:last-of-type{border-bottom:none;}
+.cert-id-row span:first-child{text-transform:uppercase; letter-spacing:.08em; opacity:.75;}
+.cert-id-row .mono{color:var(--cyan); font-weight:600; text-align:right;}
+
+/* ---- Certification slide-in reveal (direction override, higher specificity than base .reveal) ---- */
+.cert-flip.reveal{transform:translateX(-60px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);}
+.cert-flip.reveal.from-right{transform:translateX(60px);}
+.cert-flip.reveal.in-view{transform:translateX(0);}
+
+/* ---- Certification marquee (auto-scrolling badge strip) ---- */
+.cert-marquee{
+  position:relative; overflow:hidden; margin:0 0 34px; padding:14px 0;
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image:linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.cert-marquee-track{display:flex; align-items:center; gap:14px; width:max-content; animation:certSlide 26s linear infinite;}
+.cert-marquee:hover .cert-marquee-track{animation-play-state:paused;}
+.cert-marquee-chip{
+  display:flex; align-items:center; gap:8px; white-space:nowrap; font-size:.78rem; font-weight:600;
+  color:var(--muted); background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:9px 18px;
+}
+.cert-marquee-chip i{color:var(--cyan);}
+.cert-marquee-chip .chip-issuer{color:var(--muted-2); font-weight:400;}
+@keyframes certSlide{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .cert-verify-btn{
   display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 16px; border-radius:9px;
   background:rgba(34,211,238,.12); border:1px solid rgba(34,211,238,.4); color:var(--cyan); font-weight:600; font-size:.84rem;
@@ -775,6 +801,9 @@ footer{border-top:1px solid var(--line); padding:40px 0; margin-top:40px;}
       <span class="section-tag reveal"><i class="fa-solid fa-award"></i> Credentials Vault</span>
       <h2 class="section-title reveal">Cybersecurity Credentials Vault</h2>
       <p class="section-sub reveal">Hover (or tap) a card to flip it — skills gained, category, and a link to verify each credential with the issuer.</p>
+      <div class="cert-marquee reveal">
+        <div class="cert-marquee-track" id="certMarqueeTrack"></div>
+      </div>
       <div class="cert-grid" id="certGrid"></div>
       <p class="vault-note reveal"><i class="fa-solid fa-circle-info"></i> Verify links point to each issuer's official public verification portal. Add your specific credential ID / verification URL per card once available for direct deep-linking.</p>
     </div>
@@ -933,18 +962,26 @@ const MATRIX = [
 ];
 
 const CERTS = [
-  {name:"CompTIA CySA+", issuer:"CompTIA", category:"SOC Operations", icon:"fa-solid fa-shield-halved",
+  {name:"CompTIA CySA+ (ce)", issuer:"CompTIA", category:"SOC Operations", icon:"fa-solid fa-shield-halved",
+   credId:"COMP001023105040", issued:"Aug 14, 2026", expires:"Aug 14, 2029",
    skills:["Threat Detection","Incident Response","Vulnerability Mgmt","Log &amp; SIEM Analysis"],
    verify:"https://www.certmetrics.com/comptia/public/verification.aspx"},
   {name:"Azure Administrator (AZ-104)", issuer:"Microsoft", category:"Cloud &amp; Identity", icon:"fa-brands fa-microsoft",
+   credId:"26939EDDFF1B9E0C", issued:"May 22, 2026", expires:"May 23, 2027",
    skills:["Azure AD &amp; Identity","VM &amp; Storage Mgmt","Network Security Groups","Monitoring &amp; Backup"],
-   verify:"https://learn.microsoft.com/en-us/users/verifycertification"},
+   verify:"https://learn.microsoft.com/en-us/users/mohammadkhurshedalam-1076/credentials/certification/azure-administrator?tab=credentials-tab"},
   {name:"Cisco CCNP Enterprise", issuer:"Cisco", category:"Network Security", icon:"fa-solid fa-network-wired",
+   credId:"CSCO15140757", issued:"May 22, 2026", expires:"May 22, 2029",
    skills:["Routing &amp; Switching","VLAN &amp; Firewall Policy","VPN Architecture","Network Troubleshooting"],
-   verify:"https://www.credly.com/org/cisco/verify"},
+   verify:"https://www.cisco.com/go/verifycertificate"},
+  {name:"Cisco Certified Specialist — Enterprise Core", issuer:"Cisco", category:"Core Enterprise Networking", icon:"fa-solid fa-server",
+   credId:"CSCO15140757", issued:"May 8, 2026", expires:"May 8, 2029",
+   skills:["Enterprise Network Architecture","Virtualization &amp; SD-Access","Network Assurance","Automation &amp; APIs"],
+   verify:"https://www.cisco.com/go/verifycertificate"},
   {name:"Cisco CCNA", issuer:"Cisco", category:"Networking Fundamentals", icon:"fa-solid fa-diagram-project",
+   credId:"CSCO15140757", issued:"Apr 11, 2026", expires:"Apr 11, 2029",
    skills:["IP Addressing &amp; Subnetting","Switching Concepts","Network Security Basics","Automation Basics"],
-   verify:"https://www.credly.com/org/cisco/verify"},
+   verify:"https://www.cisco.com/go/verifycertificate"},
 ];
 
 const PROJECTS = [
@@ -999,7 +1036,7 @@ MATRIX.forEach((m,i)=>{
 const certGrid = document.getElementById('certGrid');
 CERTS.forEach((c,i)=>{
   const wrap = document.createElement('div');
-  wrap.className = 'cert-flip reveal' + (i%2===1?' reveal-delay-1':'');
+  wrap.className = 'cert-flip reveal' + (i%2===1?' from-right reveal-delay-1':'');
   wrap.innerHTML = `
     <div class="cert-flip-inner">
       <div class="cert-face cert-front">
@@ -1021,13 +1058,22 @@ CERTS.forEach((c,i)=>{
           <ul class="cert-skill-list">${c.skills.map(s=>`<li><i class="fa-solid fa-check"></i> ${s}</li>`).join('')}</ul>
         </div>
         <div>
-          <div class="cert-meta-row">Issuer: ${c.issuer} · Category: ${c.category}</div>
+          <div class="cert-id-row"><span>Credential ID</span><span class="mono">${c.credId}</span></div>
+          <div class="cert-id-row"><span>Issued</span><span class="mono">${c.issued}</span></div>
+          <div class="cert-id-row"><span>Valid Through</span><span class="mono">${c.expires}</span></div>
           <a href="${c.verify}" target="_blank" rel="noopener" class="cert-verify-btn"><i class="fa-solid fa-circle-check"></i> Verify Certificate</a>
         </div>
       </div>
     </div>`;
   certGrid.appendChild(wrap);
 });
+
+/* ---------- RENDER CERT MARQUEE (sliding badge strip) ---------- */
+const certMarqueeTrack = document.getElementById('certMarqueeTrack');
+if(certMarqueeTrack){
+  const chips = CERTS.map(c=>`<div class="cert-marquee-chip"><i class="${c.icon}"></i> ${c.name} <span class="chip-issuer">— ${c.issuer}</span></div>`).join('');
+  certMarqueeTrack.innerHTML = chips + chips; // doubled for seamless loop
+}
 
 /* ---------- RENDER PROJECTS ---------- */
 const projectsGrid = document.getElementById('projectsGrid');
